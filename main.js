@@ -80,11 +80,10 @@ socket.broadcast.emit('pumsg',data);
 
 
 
-/* http.listen(3000, () => {
-   console.log('listening on *:3000');
-});
- */
-app.set( 'port', ( process.env.PORT || 3000 ));
-app.listen( app.get( 'port' ), function() {
-    console.log( 'Node server is running on port ' + app.get( 'port' ));
-    });
+
+var port=process.env.PORT || 3000 
+
+ http.listen(port, () => {
+   console.log('listening on :' + port);
+})
+ 
