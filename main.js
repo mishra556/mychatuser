@@ -28,8 +28,8 @@ var left=[];
 io.on('connection', (socket) => {
 
    console.log('user connected' + ':' + socket.id);
-   socket.emit('message', 'welcome to our chat room');
 
+   socket.emit('msghead', 'welcome to our chat room');
 
   
 

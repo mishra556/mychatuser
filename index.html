@@ -4,7 +4,7 @@
 <head>
    <title>my chatroom</title>
 
-   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+   <script src="/socket.io/socket.io.js"></script>
 
 
    <script>
@@ -50,6 +50,7 @@ sender=name;
 
       socket.on('left', name => {
 
+         var time = document.getElementById('mytime').innerText;
          var ul = document.querySelector(".msgbox");
          var st = name;
          var stleft=name;
@@ -57,7 +58,7 @@ sender=name;
          var listtext = document.createTextNode(st);
          var msgadd = document.createElement('div');
          msgadd.className = "msg left";
-         msgadd.innerText = st + ': ' + 'left the chat';
+         msgadd.innerText = st + ': ' + 'left the chat' + "   " + time  ;
 
 
          /* document.getElementsByClassName('.msgbox').appendChild(msgadd); */
@@ -87,7 +88,7 @@ var listtext = document.createTextNode(st);
 
 var msgbtn = document.createElement('li');
 
-msgbtn.innerText = st + ': ' + 'left the chat';
+msgbtn.innerText = st + ': ' + 'left the chat' ;
 msgbtn.id = ".suser";
 msgbtn.className = "suser";
 
@@ -106,14 +107,14 @@ ul.append(msgbtn);
 
 
       socket.on('message', message => {
-
+         var time = document.getElementById('mytime').innerText;
          var ul = document.querySelector(".msgbox");
          var st = message;
 
          var listtext = document.createTextNode(st);
          var msgadd = document.createElement('div');
          msgadd.className = "msg left";
-         msgadd.innerText = st;
+         msgadd.innerText = st + '    ' +  '  '+  time  ;
 
 
          /* document.getElementsByClassName('.msgbox').appendChild(msgadd); */
@@ -124,15 +125,38 @@ ul.append(msgbtn);
 
       });
 
-      socket.on('pumsg', data => {
 
+      socket.on('msghead', message => {
+         var time = document.getElementById('mytime').innerText;
+         var ul = document.querySelector(".msgbox");
+         var st = message;
+
+         var listtext = document.createTextNode(st);
+         var msgadd = document.createElement('div');
+         msgadd.className = "msg left";
+         msgadd.innerText = st ;
+
+
+         /* document.getElementsByClassName('.msgbox').appendChild(msgadd); */
+         ul.append(msgadd);
+         scrollbottom();
+
+
+
+      });
+
+
+
+
+      socket.on('pumsg', data => {
+         var time = document.getElementById('mytime').innerText;
 var ul = document.querySelector(".msgbox");
 var st =data.sender +':'+  data.msg;
 
 var listtext = document.createTextNode(st);
 var msgadd = document.createElement('div');
 msgadd.className = "msg left";
-msgadd.innerText = st;
+msgadd.innerText =st + '    ' +  '  '+  time  ;
 
 
 /* document.getElementsByClassName('.msgbox').appendChild(msgadd); */
@@ -150,12 +174,12 @@ socket.on('pmsg', data => {
 
 var ul = document.querySelector(".msgbox");
 var st =data.sender +':'+  data.msg;
-
+var time = document.getElementById('mytime').innerText;
 
 var listtext = document.createTextNode(st);
 var msgadd = document.createElement('div');
 msgadd.className = "msg left";
-msgadd.innerText = st;
+msgadd.innerText = st + '    ' +  '  '+  time  ;
 
 
 /* document.getElementsByClassName('.msgbox').appendChild(msgadd); */
@@ -170,10 +194,10 @@ scrollbottom();
 
 
       socket.on('heading', message => {
-
+       
 
          var st = message;
-         document.getElementById('udis').innerText = st;
+         document.getElementById('udis').innerText = st ;
 
 
       });
@@ -195,13 +219,13 @@ scrollbottom();
       socket.on('user-join', name => {
 
          var st = name + ':' + "join the chat";
-
+         var time = document.getElementById('mytime').innerText;
          var ul = document.querySelector(".msgbox");
 
          var listtext = document.createTextNode(st);
          var msgadd = document.createElement('div');
          msgadd.className = "msg left";
-         msgadd.innerText = st;
+         msgadd.innerText =st + '    ' +  '  '+  time  ;
 
 
          /* document.getElementsByClassName('.msgbox').appendChild(msgadd); */
@@ -494,7 +518,7 @@ background-color: yellow;
    <div class="sd1">
       <div class="main">
          <p><span id="uname"></span>Chat room</p>
-         <h1 id="mytime">4.00 pm</h1>
+         <h1 id="mytime"></h1>
          <p><span id="udis"></span></p>
 
 
@@ -553,7 +577,7 @@ background-color: yellow;
       msgadd.className = "msg left"
 
       var mytime = clockdisplay();
-      msgadd.innerText = st + '  -(' + time + ')';
+      msgadd.innerText = st + '    ' +  '  '+  time  ;
 
 
       ul.append(msgadd);
@@ -580,7 +604,7 @@ background-color: yellow;
       msgadd.className = "msg right";
 
       var mytime = clockdisplay();
-      msgadd.innerText = st + '  -(' + time + ')';
+      msgadd.innerText = st + '    ' +  '  '+  time  ;
 
 
 
@@ -599,7 +623,7 @@ background-color: yellow;
 
       /* socket.emit('chatm', {sender,receiver,msg:st,value:flag}); */
 
-      msgadd.innerText = 'you :' + st + '  -(' + time + ')';
+      msgadd.innerText = 'you :' + st + '    ' +  '  '+  time  ;
       ul.append(msgadd);
       scrollbottom();
 
