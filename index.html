@@ -292,7 +292,8 @@ scrollbottom();
 
 
    <style type="text/css">
-      .main {
+
+     .sd1 .main {
 
          max-width: 1000px;
          min-height: 100px;
@@ -302,6 +303,7 @@ scrollbottom();
          color: white;
          margin: 0 auto;
          margin-bottom: 20px;
+         margin-top: -15px;
 
 
 
@@ -330,6 +332,7 @@ scrollbottom();
       .send .form input[type=text] {
          margin: 10px;
          max-width: 350px;
+         min-width: 300px;
          height: 40px;
          border-radius: 10px;
 
@@ -340,7 +343,7 @@ scrollbottom();
          width: 100px;
          height: 40px;
          border-radius: 50%;
-         margin: 10px;
+         margin:5px;
 
 
       }
@@ -354,7 +357,7 @@ scrollbottom();
 
 
 
-      .msgbox {
+   .sd1   .msgbox {
 
 
 
@@ -435,21 +438,21 @@ scrollbottom();
 
       }
 
-      .mainbody .ulist {
+    .bodymain  .mainbody .ulist {
          width: 400px;
          min-height: 400px;
-         float: left;
+        
 
          border-radius: 20px;
       }
 
-      .mainbody .ulist ul {
+      .bodymain  .mainbody .ulist ul {
 
          margin: 0;
 
       }
 
-      .mainbody ul li {
+      .bodymain  .mainbody ul li {
          margin-top: 10px;
          margin-bottom: 10px;
          width: 150px;
@@ -489,17 +492,25 @@ background-color: yellow;
          box-shadow: 1px 1px 10px black;
       }
 
-      .sd1 {
-         float: right;
+    
+
+      .bodymain{
+         max-width: 1000px;
+         height:auto;
+         margin:0 auto;
+       
+         display: flex;
       }
+
    </style>
 </head>
 
 <body>
 
-
+<div class="bodymain">
 
    <div class="mainbody">
+
       <input type="text" id="rem" class="mbs" placeholder="Enter your User Name">
       <input type="submit" id="res" class="mbt" value="Submit" onclick="addname();">
 
@@ -555,7 +566,7 @@ background-color: yellow;
 
       </div>
    </div>
-
+</div>
 
 </body>
 <script>
