@@ -4,12 +4,9 @@
   "description": "vhat",
   "main": "main.js",
   "scripts": {
-    "start":"node main.js",
-    
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mishra556/mychatuser.git"
@@ -24,6 +21,7 @@
     "express": "^4.17.1",
     "http": "0.0.1-security",
     "internet-available": "^1.0.0",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
   }
