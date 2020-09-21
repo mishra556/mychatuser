@@ -626,10 +626,10 @@ background-color: yellow;
 
       var msgt = name + ':' + msgadd.innerText;
       if (flag==0){
-         socket.emit('chatp', {sender,receiver,msg:st,value:flag});
+         socket.emit('chatp', {sender,receiver,msg:st,mtime:time});
       }
       else if(flag==1){
-         socket.emit('chatm', {sender,receiver,msg:st,value:flag});
+         socket.emit('chatm', {sender,receiver,msg:st,mtime:time});
       }
 
       /* socket.emit('chatm', {sender,receiver,msg:st,value:flag}); */

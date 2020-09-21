@@ -8,8 +8,17 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var mysql=require("mysql");
+var con=mysql.createConnection({
+   "host":"localhost",
+   "user":"root",
+   "password":"",
+   "database":"chatmsg"
+});
 
+con.connect(function(error){
 
+});
 
 
 app.get('/', function (req, res) {
@@ -57,12 +66,21 @@ io.on('connection', (socket) => {
       var socketid=users[data.receiver];
 
        io.to(socketid).emit('pmsg',  data);
+
+       con.query("Insert Into msg(sender_name,receiver_name,msg,time) values ('"+ data.sender +"','"+ data.receiver +"','"+ data.msg +"','"+ data.mtime +"')",function(error,result) {
+
+       });
     
       
 
    });
+   
    socket.on('chatp',data => {
 socket.broadcast.emit('pumsg',data);
+
+con.query("Insert Into msg(sender_name,receiver_name,msg,time) values ('"+ data.sender +"','"+ data.receiver +"','"+ data.msg +"','"+ data.mtime +"')",function(error,result) {
+
+});
 
    });
 
