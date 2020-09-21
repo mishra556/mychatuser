@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mishra556/mychatuser#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
     "http": "0.0.1-security",
     "internet-available": "^1.0.0",
     "mysql": "^2.18.1",
